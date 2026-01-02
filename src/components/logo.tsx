@@ -14,6 +14,7 @@ export const Logo = ({ className }: { className?: string }) => {
       {...brandLogo}
       priority
       sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
+      alt={brandLogo.alt}
       className={cn("h-10 w-auto md:h-12", className)}
     />
   );
@@ -24,6 +25,7 @@ export const LogoStroke = ({ className }: { className?: string }) => {
     <Image
       {...brandLogo}
       sizes="(max-width: 768px) 140px, (max-width: 1024px) 160px, 180px"
+      alt={brandLogo.alt}
       className={cn("h-10 w-auto md:h-12", className)}
     />
   );

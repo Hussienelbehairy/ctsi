@@ -44,64 +44,50 @@ export function Cursor({
       cursorX.set(window.innerWidth / 2);
       cursorY.set(window.innerHeight / 2);
     }
-  }, []);
+  }, [cursorX, cursorY]);
 
   useEffect(() => {
-    if (!attachToParent) {
-      document.body.style.cursor = "none";
-    } else {
-      document.body.style.cursor = "auto";
-    }
-
     const updatePosition = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       onPositionChange?.(e.clientX, e.clientY);
     };
 
+    if (!attachToParent) {
+      document.body.style.cursor = "none";
+    } else {
+      document.body.style.cursor = "auto";
+    }
+
     document.addEventListener("mousemove", updatePosition);
 
     return () => {
       document.removeEventListener("mousemove", updatePosition);
     };
-  }, [cursorX, cursorY, onPositionChange]);
+  }, [attachToParent, cursorX, cursorY, onPositionChange]);
 
   const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 });
   const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 });
 
   useEffect(() => {
-    const handleVisibilityChange = (visible: boolean) => {
-      setIsVisible(visible);
+    const parent = cursorRef.current?.parentElement;
+    if (!attachToParent || !parent) return;
+
+    const handleEnter = () => {
+      parent.style.cursor = "none";
+      setIsVisible(true);
+    };
+    const handleLeave = () => {
+      parent.style.cursor = "auto";
+      setIsVisible(false);
     };
 
-    if (attachToParent && cursorRef.current) {
-      const parent = cursorRef.current.parentElement;
-      if (parent) {
-        parent.addEventListener("mouseenter", () => {
-          parent.style.cursor = "none";
-          handleVisibilityChange(true);
-        });
-        parent.addEventListener("mouseleave", () => {
-          parent.style.cursor = "auto";
-          handleVisibilityChange(false);
-        });
-      }
-    }
+    parent.addEventListener("mouseenter", handleEnter);
+    parent.addEventListener("mouseleave", handleLeave);
 
     return () => {
-      if (attachToParent && cursorRef.current) {
-        const parent = cursorRef.current.parentElement;
-        if (parent) {
-          parent.removeEventListener("mouseenter", () => {
-            parent.style.cursor = "none";
-            handleVisibilityChange(true);
-          });
-          parent.removeEventListener("mouseleave", () => {
-            parent.style.cursor = "auto";
-            handleVisibilityChange(false);
-          });
-        }
-      }
+      parent.removeEventListener("mouseenter", handleEnter);
+      parent.removeEventListener("mouseleave", handleLeave);
     };
   }, [attachToParent]);
 

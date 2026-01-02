@@ -1,19 +1,16 @@
 {
-  "name": "lume-studio",
+  "name": "cut-to-size-interiors",
   "version": "0.1.0",
-  "description": "A Design agency template built with Next.js.",
+  "description": "Marketing site for CUT TO SIZE INTERIORS built with Next.js.",
   "keywords": [
-    "kohi studio",
+    "Cut To Size Interiors",
+    "interior design",
+    "joinery",
     "nextjs",
-    "template",
-    "free nextjs template"
+    "marketing site"
   ],
-  "author": "Kohi Studio",
+  "author": "CUT TO SIZE INTERIORS",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kohistudio/lume-studio-template"
-  },
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

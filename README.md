@@ -1,6 +1,6 @@
-# Lume Studio - Next.js Template
+# Cut To Size Interiors Website
 
-This project is a Next.js template built with TypeScript, designed for creating stunning websites with smooth animations and modern UI components.
+Marketing site for Cut To Size Interiors built with Next.js, TypeScript, Tailwind, and Motion for smooth scroll-triggered animations.
 
 ## Getting Started
 
@@ -18,30 +18,13 @@ This project is a Next.js template built with TypeScript, designed for creating 
 
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+## Technologies
 
-### Cloudflare Pages
-
-If you intend to deploy this project using Cloudflare Pages, please use the `cf-pages` branch. This branch contains configurations optimized for Cloudflare Pages deployment.
-
-## Key Components
-
-### ScrollView Component [`src/components/scroll-view.tsx`](src/components/scroll-view.tsx)
-
-The `ScrollView` component is a utility component that triggers animations when an element becomes visible in the viewport. It's designed to enhance user experience by adding engaging visual effects as users scroll through the page.
-
-## Technologies Used
-
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [pnpm](https://pnpm.io/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Motion.dev](https://motion.dev/)
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Motion.dev
 
 ## License
 
 MIT
-
-## Full version
-
-For the full version, go to https://lume.kohi.studio/full-version
