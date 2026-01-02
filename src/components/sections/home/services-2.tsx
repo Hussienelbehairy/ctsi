@@ -1,10 +1,10 @@
-import { CustomCursorElement } from "@/components/custom-cursor-element";
+"use client";
+
+import Image from "next/image";
 import { InView } from "@/components/motion-primitives/in-view";
 import { ScrollView, ScrollViewStaggerWrapper } from "@/components/scroll-view";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES_LIST } from "@/content/services";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function ServicesSection2() {
   return (
@@ -18,21 +18,18 @@ export default function ServicesSection2() {
           </ScrollView>
           <ScrollView delay={0.2}>
             <p>
-              At Lume Studio, we create designs that are more than just visually
-              appealing. They&apos;re built to solve problems, connect with
-              audience, and drive results. <br /> Whether you’re starting fresh
-              or refining your existing identity, <br /> we’ve got you covered.
+              At Cut To Size Interiors, every design starts with understanding how you live and work. We translate ideas into precise layouts, then into carefully manufactured interiors that deliver comfort, efficiency, and lasting quality.
             </p>
           </ScrollView>
         </div>
         <div className="mt-12 md:mt-24">
           <div className="space-y-10">
-            {SERVICES_LIST.map((service, index) => (
+            {SERVICES_LIST.map((service) => (
               <div
                 key={service.name}
                 className="group overflow-hidden border-b py-10"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+                <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
                   <div className="self-end lg:col-span-2">
                     <div className="flex flex-col gap-8 ">
                       <div className="space-y-4">
@@ -66,53 +63,45 @@ export default function ServicesSection2() {
                       </ScrollView>
                     </div>
                   </div>
-                  <div className=" lg:col-span-3">
-                    <CustomCursorElement
-                      cursor={
-                        <div className="text-zinc-950 text-lg font-medium">
-                          View
-                        </div>
-                      }
+                  <div className="lg:col-span-3">
+                    <InView
+                      variants={{
+                        hidden: {
+                          opacity: 0,
+                          y: 20,
+                          filter: "blur(14px)",
+                          scale: 0.5,
+                          originX: 0,
+                          originY: 0,
+                        },
+                        visible: {
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                          filter: "blur(0px)",
+                          transition: {
+                            delay: 0.01,
+                            duration: 0.5,
+                          },
+                        },
+                      }}
+                      viewOptions={{
+                        margin: "0px 0px -250px 0px",
+                        once: true,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <InView
-                        variants={{
-                          hidden: {
-                            opacity: 0,
-                            y: 20,
-                            filter: "blur(14px)",
-                            scale: 0.5,
-                            originX: 0,
-                            originY: 0,
-                          },
-                          visible: {
-                            opacity: 1,
-                            scale: 1,
-                            y: 0,
-                            filter: "blur(0px)",
-                            transition: {
-                              delay: 0.01,
-                              duration: 0.5,
-                            },
-                          },
-                        }}
-                        viewOptions={{
-                          margin: "0px 0px -250px 0px",
-                          once: true,
-                        }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <Link href={service.url}>
-                          <Image
-                            src={service.img}
-                            alt={service.name}
-                            height="480"
-                            width="720"
-                            loading="lazy"
-                            className=" object-cover object-top  transition-all duration-500 w-full  aspect-[16/9]"
-                          />
-                        </Link>
-                      </InView>
-                    </CustomCursorElement>
+                      <div className="w-full overflow-hidden rounded-2xl shadow-lg">
+                        <Image
+                          src={service.img}
+                          alt={service.name}
+                          height={720}
+                          width={1080}
+                          className="aspect-[16/9] w-full object-cover object-center transition duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    </InView>
                   </div>
                 </div>
               </div>

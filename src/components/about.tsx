@@ -4,25 +4,25 @@ import Image from "next/image";
 
 const ourPrinciples = [
   {
-    title: "Creativity with Purpose",
+    title: "Design with Purpose",
     description:
-      "Our designs aren’t just pretty; they’re built to solve problems and make an impact.",
+      "Our interiors aren’t designed to impress visually alone. Every kitchen, wardrobe, and space is engineered for functionality, efficiency, and long-term use.",
   },
   {
-    title: "Collaboration is Key",
+    title: "Collaboration First",
     description:
-      "We work with you, not just for you. Great ideas come from teamwork.",
+      "We work with our clients, not around them. Your needs, lifestyle, and vision shape every decision — from layout to material selection.",
   },
 
   {
-    title: "Honest & Transparent",
+    title: "Clear & Transparent",
     description:
-      "No confusing jargon or hidden fees. Just clear communication and real results.",
+      "No vague promises or hidden surprises. Just honest communication, clear timelines, and realistic expectations from concept to installation.",
   },
   {
-    title: "Details Matter",
+    title: "Details Define Quality",
     description:
-      "The little things make a big difference. We sweat the small stuff, so you don’t have to.",
+      "Precision is everything. From millimeter-accurate measurements to finishing touches, we obsess over the details so the final result feels effortless.",
   },
 ];
 
@@ -38,18 +38,14 @@ export default function ContentSection() {
           </ScrollView>
           <ScrollView>
             <p>
-              Lume Studio was born from a simple idea—great design should do
-              more than just look good; it should make an impact. What started
-              as a passion for creativity turned into a full-fledged design
-              agency dedicated to helping brands tell their stories, connect
-              with audiences, and stand out in a crowded world.
+              Cut To Size Interiors believes great interiors begin with thoughtful design and precise execution. From concept and technical drawings to manufacturing and installation, we turn ideas into bespoke kitchens, wardrobes, and custom-built spaces using premium materials and expert craftsmanship.
             </p>
           </ScrollView>
         </div>
         <ScrollView>
           <Image
             className="rounded-(--radius) grayscale-75 object-cover aspect-[16/9] w-full"
-            src="/images/office.jpeg"
+            src="/images/about.png"
             alt="team image"
             height="480"
             width="720"

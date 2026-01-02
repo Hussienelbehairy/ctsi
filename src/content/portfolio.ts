@@ -1,44 +1,31 @@
 export const PORTFOLIO_CONTENT = [
   {
-    name: "GreenScape Landscaping",
+    name: "Badie Uptown Kitchen (Flagship)",
     description:
-      "Modern landing page for a landscaping company featuring service showcases, before/after galleries, and instant quote requests.",
-    img: "/images/portfolio/eco.jpg",
-    url: "#",
+      "Four-part kitchen showcase featuring custom cabinetry, premium finishes, and precision installation.",
+    videos: [
+      "/projects/badie-uptown-kitchen/badie-uptown1.mp4",
+      "/projects/badie-uptown-kitchen/badie-uptown2.mp4",
+      "/projects/badie-uptown-kitchen/badie-uptown3.mp4",
+      "/projects/badie-uptown-kitchen/badie-uptown4.mp4",
+    ],
   },
   {
-    name: "Starlight Prom Nights",
+    name: "Kiki's Bar Counter — Archway",
     description:
-      "Vibrant promotional page for high school prom parties with ticket booking, photo galleries, and theme selection.",
-    img: "/images/portfolio/event.jpg",
-    url: "#",
+      "Tailored bar counter with seamless surfaces and integrated lighting for a hospitality setting.",
+    videos: ["/projects/archway-kikis-barcounter/kikis1.mp4"],
   },
   {
-    name: "Prestige College of Arts",
+    name: "Katameya Dunes Quartz Install",
     description:
-      "Elegant academic landing page with program highlights, virtual campus tours, and application portals.",
-    img: "/images/portfolio/art.jpg",
-    url: "#",
+      "Quartz worktop installation with precise templating and clean detailing for a modern kitchen.",
+    videos: ["/projects/salah-katameyadunes-quartz/katameyadunes-quartz.mp4"],
   },
   {
-    name: "CycleSpot Rentals",
+    name: "Arabica Solid Surface Fit-out",
     description:
-      "Bike rental platform with location-based availability, pricing calculators, and secure online bookings.",
-    img: "/images/portfolio/bike.jpg",
-    url: "#",
-  },
-  {
-    name: "Bella Cucina Restaurant",
-    description:
-      "Appetizing restaurant landing page with menu displays, reservation system, and chef's specials highlights.",
-    img: "/images/portfolio/resturant.jpg",
-    url: "#",
-  },
-  {
-    name: "SereneMind Meditation",
-    description:
-      "Calming meditation app interface with guided session timers, progress tracking, and relaxation music integration.",
-    img: "/images/portfolio/meditation.jpg",
-    url: "#",
+      "Solid-surface counters and cladding with durable, hygienic finishes for a commercial space.",
+    videos: ["/projects/unitedr-arabica-solidsurface/arabica-solidsurface.mp4"],
   },
 ];

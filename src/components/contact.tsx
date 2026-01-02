@@ -1,4 +1,7 @@
-import { Mail, MapPin, PhoneCall } from "lucide-react";
+"use client";
+
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { Mail, MapPin, PhoneCall, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +12,53 @@ import Link from "next/link";
 import { ScrollView } from "./scroll-view";
 
 export default function FeaturesSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    inquiry: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange =
+    (field: "name" | "phone" | "inquiry") =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      if (status === "success" || status === "error") {
+        setStatus("idle");
+        setError(null);
+      }
+      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
+    };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("loading");
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.error || "Unable to send your message right now.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", phone: "", inquiry: "" });
+    } catch (err) {
+      setStatus("error");
+      setError(
+        err instanceof Error ? err.message : "Unable to send your message right now."
+      );
+    }
+  };
+
   return (
     <section className="py-16 md:py-32 bg-gray-50 dark:bg-transparent">
       <div className="mx-auto max-w-6xl px-6">
@@ -23,34 +73,39 @@ export default function FeaturesSection() {
               <ScrollView>
                 <p className="mt-6">
                   We&apos;d love to hear from you! Feel free to reach out to us
-                  for any inquiries or to schedule a call.
+                  for any inquiries or to visit our showroom.
                 </p>
               </ScrollView>
             </div>
             <ScrollView delay={0.2}>
               <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
                 <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
+                  <Link
+                    href="mailto:info@cuttosize-interiors.com"
+                    className="hover:text-accent-foreground"
+                  >
                     <Mail className="size-5 mr-2 inline" />
-                    <span>contact@company.com</span>
+                    <span>info@cuttosize-interiors.com</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
+                  <Link
+                    href="tel:+201090029220"
+                    className="hover:text-accent-foreground"
+                  >
                     <PhoneCall className="size-5 mr-2 inline" />
-                    <span>+1 555-555-5555</span>
+                    <span>+201090029220</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
+                  <Link
+                    href="https://maps.app.goo.gl/NnfetqwdryhvrxpV6"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-accent-foreground"
+                  >
                     <MapPin className="size-5 mr-2 inline" />
-                    <span>123 Main St, Anytown USA</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
-                    <MapPin className="size-5 mr-2 inline" />
-                    <span>123 Main St, Anytown UK</span>
+                    <span>95 Abo Bakr el Seddik, Heliopolis</span>
                   </Link>
                 </li>
               </ul>
@@ -70,17 +125,32 @@ export default function FeaturesSection() {
                 </div>
 
                 <form
-                  action=""
+                  onSubmit={handleSubmit}
                   className="**:[&>label]:block mt-12 space-y-6 *:space-y-3"
                 >
                   <div>
                     <Label htmlFor="name">Full name</Label>
-                    <Input type="text" id="name" required />
+                    <Input
+                      type="text"
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange("name")}
+                      autoComplete="name"
+                      required
+                    />
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Work Email</Label>
-                    <Input type="email" id="email" required />
+                    <Label htmlFor="phone">Phone number</Label>
+                    <Input
+                      type="tel"
+                      id="phone"
+                      value={formData.phone}
+                      onChange={handleChange("phone")}
+                      autoComplete="tel"
+                      placeholder="+20 100 000 0000"
+                      required
+                    />
                   </div>
 
                   {/* <div>
@@ -119,11 +189,38 @@ export default function FeaturesSection() {
                         </div> */}
 
                   <div>
-                    <Label htmlFor="msg">Message</Label>
-                    <Textarea id="msg" rows={3} />
+                    <Label htmlFor="msg">Inquiry</Label>
+                    <Textarea
+                      id="msg"
+                      rows={3}
+                      value={formData.inquiry}
+                      onChange={handleChange("inquiry")}
+                      required
+                      placeholder="Tell us about your project..."
+                    />
                   </div>
 
-                  <Button>Submit</Button>
+                  {error && (
+                    <p className="text-sm text-red-500" role="alert">
+                      {error}
+                    </p>
+                  )}
+                  {status === "success" && (
+                    <p className="text-sm text-green-600">
+                      Thanks! We received your message and will reach out soon.
+                    </p>
+                  )}
+
+                  <Button type="submit" disabled={status === "loading"}>
+                    {status === "loading" ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
+                  </Button>
                 </form>
               </Card>
             </ScrollView>

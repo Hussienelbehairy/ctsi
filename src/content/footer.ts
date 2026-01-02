@@ -8,10 +8,6 @@ export const FOOTER_LINKS = [
     href: "#about",
   },
   {
-    title: "Team",
-    href: "#team",
-  },
-  {
     title: "Services",
     href: "#services",
   },

@@ -9,14 +9,12 @@ export default function StatsSection() {
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
           <ScrollView>
             <h2 className="text-4xl font-medium lg:text-5xl">
-              Driven by Design. Backed by Results.
+              Driven by Design. Built on Precision.
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
             <p>
-              At Lume Studio, we don’t just make things look good — we create
-              thoughtful design experiences that help businesses grow, connect
-              with their audience, and stand out in a crowded digital world.
+              At Cut To Size Interiors, we don’t just design spaces, we engineer them. From bespoke kitchens and wardrobes to complete interior solutions, every project is thoughtfully designed, precisely manufactured, and executed using premium materials to deliver lasting quality and functionality.
             </p>
           </ScrollView>
         </div>
@@ -33,8 +31,8 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">+120</div>
-              <p>Projects Launched</p>
+              <div className="text-5xl font-bold">+150</div>
+              <p>Bespoke Projects Delivered</p>
             </motion.div>
             <motion.div
               variants={{
@@ -47,8 +45,8 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">40%</div>
-              <p>Average Client Growth</p>
+              <div className="text-5xl font-bold text-orange-500">Premium Materials</div>
+              <p>Sourced from Global Brands</p>
             </motion.div>
             <motion.div
               variants={{
@@ -62,7 +60,7 @@ export default function StatsSection() {
               className="space-y-4"
             >
               <div className="text-5xl font-bold">5+</div>
-              <p>Years in the Game</p>
+              <p>Years in Design & Manufacturing</p>
             </motion.div>
           </div>
         </ScrollView>
