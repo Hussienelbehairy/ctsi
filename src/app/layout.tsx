@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CUT TO SIZE INTERIORS",
+  title: "CUT TO SIZE INTERIORS | Custom Kitchens & Interiors",
   description:
     "Custom kitchens, wardrobes, and interior fit-outs crafted by CUT TO SIZE INTERIORS.",
 };
