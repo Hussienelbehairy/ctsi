@@ -116,11 +116,6 @@ export const HeroHeader = () => {
                   asChild
                   size="sm"
                   className={cn(
-                    "group relative overflow-hidden border border-orange-200/70 bg-gradient-to-r from-white/70 via-orange-50/40 to-white/40 text-foreground shadow-[0_10px_32px_rgba(249,115,22,0.18)] backdrop-blur-xl transition-all duration-300",
-                    "hover:-translate-y-0.5 hover:border-orange-400 hover:from-orange-100 hover:via-white hover:to-orange-50 hover:shadow-[0_18px_46px_rgba(249,115,22,0.25)]",
-                    "focus-visible:ring-2 focus-visible:ring-orange-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                    "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/70 before:via-white/20 before:to-white/5 before:opacity-80 before:transition-opacity before:content-[''] group-hover:before:opacity-50",
-                    "after:absolute after:-left-1/2 after:top-0 after:h-full after:w-2/3 after:bg-white/40 after:blur-3xl after:opacity-0 after:content-[''] group-hover:after:opacity-70",
                     isScrolled ? "lg:inline-flex" : "hidden"
                   )}
                 >
@@ -130,8 +125,8 @@ export const HeroHeader = () => {
                     rel="noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <MapPin className="h-4 w-4 text-black" />
-                    <span className="font-medium">Visit Showroom</span>
+                    <MapPin className="h-4 w-4" />
+                    <span>Visit Showroom</span>
                   </a>
                 </Button>
               </div>

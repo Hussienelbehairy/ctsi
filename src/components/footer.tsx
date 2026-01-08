@@ -1,11 +1,18 @@
 "use client";
-import { Logo } from "@/components/logo";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { Logo } from "@/components/logo";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
 
 export default function FooterSection() {
+  const [currentYear, setCurrentYear] = useState<string>("");
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <footer className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
@@ -66,7 +73,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="#https://web.facebook.com/profile.php?id=61586089738625"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -86,7 +93,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="#https://www.instagram.com/cuttosize_interiors/?fbclid=IwY2xjawPM7cZleHRuA2FlbQIxMQBicmlkETFNcXp3OVJ5QjZQclNwME1nc3J0YwZhcHBfaWQBMAABHgI5kxSLbQOtsRnxz8ehkPecApaUyaJrDy3W_McLif9otJOL8g-2otuYhtgE_aem_n2IQQoZrifotDS6Wg-tecA"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -109,8 +116,7 @@ export default function FooterSection() {
         </ScrollView>
         <ScrollView delay={0.2} viewMargin="0px 0px -20px 0px">
           <span className="text-muted-foreground block text-center text-sm">
-            {" "}
-            © {new Date().getFullYear()} CUT TO SIZE INTERIORS, All rights reserved
+            © {currentYear ? `${currentYear} ` : ""}CUT TO SIZE INTERIORS, All rights reserved
           </span>
         </ScrollView>
       </div>

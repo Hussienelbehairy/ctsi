@@ -46,54 +46,31 @@ export default function LogoCloud() {
       .trim();
 
   return (
-    <section className=" overflow-hidden py-10 md:py-12">
-      <div className="group relative m-auto max-w-7xl px-6">
-        <div className="flex flex-col items-center md:flex-row">
-          <div className="md:max-w-44 md:pr-6 flex items-center justify-end">
-            <p className="text-end text-sm hidden xl:block">
-              Sourcing from the best global brands
-            </p>
-            <span className="hidden xl:block ml-6 h-[50px] w-px bg-white/60"></span>
-          </div>
-          <div className="relative py-6 md:w-[calc(100%-11rem)]">
-            <InfiniteSlider speedOnHover={20} speed={40} gap={8}>
-              {logos.map((logo) => (
-                <div
-                  key={logo}
-                  className="flex h-[5.25rem] w-[200px] items-center justify-center md:h-[6rem] md:w-[230px] lg:h-[6.75rem] lg:w-[260px]"
-                >
-                  <a
-                    href={logoLinks[logo]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <Image
-                      src={`/brands/${logo}`}
-                      alt={toAlt(logo)}
-                      width={260}
-                      height={110}
-                      className="h-[4.25rem] w-auto max-w-[180px] object-contain grayscale brightness-0 transition-all duration-300 md:h-[4.75rem] md:max-w-[205px] lg:h-[5.25rem] lg:max-w-[230px] hover:[filter:brightness(0)_invert(47%)_sepia(92%)_saturate(2456%)_hue-rotate(359deg)_contrast(104%)]"
-                    />
-                  </a>
-                </div>
-              ))}
-            </InfiniteSlider>
-
-            {/* <div className="bg-linear-to-r from-none absolute inset-y-0 left-0 w-20"></div>
-            <div className="bg-linear-to-l from-none absolute inset-y-0 right-0 w-20"></div> */}
-            {/* <ProgressiveBlur
-              className="pointer-events-none absolute left-0 top-0 h-full w-80"
-              direction="left"
-              blurIntensity={0.9}
-            />
-            <ProgressiveBlur
-              className="pointer-events-none absolute right-0 top-0 h-full w-20"
-              direction="right"
-              blurIntensity={1}
-            /> */}
-          </div>
-        </div>
+    <section className="w-full overflow-hidden bg-gradient-to-r from-transparent to-transparent py-8 sm:py-10 md:py-12">
+      <div className="py-4 sm:py-6">
+        <InfiniteSlider speedOnHover={20} speed={40} gap={4} className="sm:gap-6">
+          {logos.map((logo) => (
+            <div
+              key={logo}
+              className="flex h-[3.5rem] w-[140px] items-center justify-center sm:h-[4.25rem] sm:w-[180px] md:h-[5rem] md:w-[210px] lg:h-[5.5rem] lg:w-[230px]"
+            >
+              <a
+                href={logoLinks[logo]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Image
+                  src={`/brands/${logo}`}
+                  alt={toAlt(logo)}
+                  width={260}
+                  height={110}
+                  className="h-[2.75rem] w-auto max-w-[110px] object-contain grayscale brightness-0 transition-all duration-300 sm:h-[3.25rem] sm:max-w-[130px] md:h-[3.75rem] md:max-w-[160px] lg:h-[4.25rem] lg:max-w-[180px] hover:[filter:brightness(0)_invert(47%)_sepia(92%)_saturate(2456%)_hue-rotate(359deg)_contrast(104%)]"
+                />
+              </a>
+            </div>
+          ))}
+        </InfiniteSlider>
       </div>
     </section>
   );

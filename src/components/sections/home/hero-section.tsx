@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, Loader2, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ArrowRight, Loader2, X, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -42,6 +42,18 @@ export default function HeroSection() {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
 
   const resetForm = () => {
     setFormData({ name: "", phone: "", inquiry: "" });
@@ -201,7 +213,7 @@ export default function HeroSection() {
           </div>
         )}
         <section className="flex min-h-screen flex-col">
-          <div className="relative flex flex-1 pt-24 md:pt-32 pb-16">
+          <div className="relative flex flex-1 pt-16 md:pt-24 pb-12">
             <AnimatedGroup
               variants={{
                 container: {
@@ -235,46 +247,22 @@ export default function HeroSection() {
                   loop
                   muted
                   preload="auto"
-                  className="size-full -scale-x-100 object-cover opacity-50 blur-sm brightness-75 invert-0 dark:opacity-35 dark:brightness-50 dark:invert"
+                  className="size-full -scale-x-100 object-cover opacity-60 md:opacity-50 blur-sm brightness-75 invert-0 dark:opacity-50 dark:brightness-50 dark:invert"
                 >
                   <source src="/hero.mp4" type="video/mp4" />
                 </video>
               </div>
             </AnimatedGroup>
 
-            <div className="absolute inset-0 -z-10 size-full "></div>
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-6">
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-4 sm:px-6">
               <div className="w-full">
-                <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0 w-full translate-y-16 md:translate-y-24">
-                  {/* <AnimatedGroup variants={transitionVariants}>
-                    <Link
-                      href="#link"
-                      className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
-                    >
-                      <span className="text-foreground text-sm">
-                        Introducing Support for AI Models
-                      </span>
-                      <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
-
-                      <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
-                        <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                          <span className="flex size-6">
-                            <ArrowRight className="m-auto size-3" />
-                          </span>
-                          <span className="flex size-6">
-                            <ArrowRight className="m-auto size-3" />
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  </AnimatedGroup> */}
-
+                <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0 w-full translate-y-8 md:translate-y-12 lg:translate-y-24">
                   <TextEffect
                     preset="fade-in-blur"
                     speedSegment={0.3}
                     delay={0.4}
                     as="h1"
-                    className="mt-3 text-balance text-5xl md:text-7xl lg:mt-8 xl:text-[5.25rem] font-semibold"
+                    className="mt-2 md:mt-3 text-balance text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[5.25rem] font-semibold leading-tight"
                   >
                     Design Meets Craftsmanship.
                   </TextEffect>
@@ -290,12 +278,12 @@ export default function HeroSection() {
                       },
                       ...transitionVariants,
                     }}
-                    className="mx-auto mt-6 flex w-fit flex-wrap items-center justify-center gap-3"
+                    className="mx-auto mt-4 md:mt-6 flex w-fit max-w-full flex-wrap items-center justify-center gap-2 md:gap-3"
                   >
                     {["Kitchens", "Bathrooms", "Wardrobes"].map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-black/10 bg-background/60 px-4 py-1.5 text-sm font-medium tracking-wide backdrop-blur dark:border-white/10"
+                        className="rounded-full border border-black/10 bg-background/80 px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm font-medium tracking-wide backdrop-blur-md dark:border-white/10 dark:bg-background/70"
                       >
                         {tag}
                       </span>
@@ -307,7 +295,7 @@ export default function HeroSection() {
                     speedSegment={0.3}
                     delay={0.95}
                     as="p"
-                    className="mx-auto mt-6 max-w-2xl text-balance text-lg italic"
+                    className="mx-auto mt-4 md:mt-6 max-w-2xl px-2 text-balance text-sm sm:text-base md:text-lg italic"
                   >
                     Custom interior design and bespoke furniture solutions crafted with precision, premium materials, and expert craftsmanship; specializing in kitchens, wardrobes, and bathrooms tailored to your lifestyle.
                   </TextEffect>
@@ -324,7 +312,7 @@ export default function HeroSection() {
                       },
                       ...transitionVariants,
                     }}
-                    className="mt-12 flex flex-col items-center justify-center gap-3 md:flex-row px-1"
+                    className="mt-8 md:mt-12 flex flex-col items-center justify-center gap-3 px-2 sm:px-1 w-full sm:w-auto"
                   >
                     <Button
                       size="lg"
@@ -333,10 +321,10 @@ export default function HeroSection() {
                         resetForm();
                         setIsModalOpen(true);
                       }}
-                      className="h-10 rounded-full px-4 text-sm font-semibold text-white bg-white/15 border border-white/30 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:bg-orange-500/90 hover:border-orange-500 hover:text-white transition-colors"
+                      className="h-12 sm:h-10 rounded-full px-6 sm:px-4 text-sm font-semibold text-white bg-white/15 border border-white/30 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:bg-orange-500/90 hover:border-orange-500 hover:text-white transition-colors w-full sm:w-auto"
                     >
                       <span className="text-nowrap">Request a Consultation</span>
-                      <ArrowRight className="size-4" />
+                      <ArrowRight className="size-4 ml-1" />
                     </Button>
                   </AnimatedGroup>
                 </div>
@@ -356,8 +344,26 @@ export default function HeroSection() {
               ...transitionVariants,
             }}
           >
-            <div className="relative -mr-56 mt-0 overflow-hidden px-2 sm:mr-0 sm:mt-6 md:mt-10">
-              <LogoCloud />
+            <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 w-full">
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 min-w-0">
+                  <div className="flex items-center gap-3 lg:border-r lg:border-border lg:pr-6 min-w-0 pl-6 sm:pl-8 lg:pl-10">
+                    <div className="min-w-0 max-w-[180px] sm:max-w-[220px] lg:max-w-[260px] mx-auto text-center">
+                      <a
+                        href="https://maps.app.goo.gl/NnfetqwdryhvrxpV6"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs sm:text-sm font-semibold hover:text-primary transition-colors break-words leading-tight"
+                      >
+                        Sourcing from the best
+                        <br />
+                        global brands
+                      </a>
+                    </div>
+                  </div>
+                  <div className="w-full flex-1 min-w-0">
+                    <LogoCloud />
+                  </div>
+                </div>
             </div>
           </AnimatedGroup>
         </section>
