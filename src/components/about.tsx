@@ -33,7 +33,7 @@ export default function ContentSection() {
         <div className="mx-auto max-w-xl space-y-6 text-center md:space-y-12">
           <ScrollView>
             <h2 className="text-balance text-4xl font-medium lg:text-5xl">
-              About Us
+              About CUT TO SIZE INTERIORS
             </h2>
           </ScrollView>
           <ScrollView>
@@ -49,6 +49,7 @@ export default function ContentSection() {
             alt="team image"
             height="480"
             width="720"
+            sizes="(min-width: 1280px) 960px, (min-width: 1024px) 840px, (min-width: 768px) 700px, 100vw"
             loading="lazy"
           />
         </ScrollView>

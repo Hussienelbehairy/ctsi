@@ -10,7 +10,7 @@ export default function PortfolioSection() {
       <div className="mx-auto max-w-5xl space-y-12 px-6">
         <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
           <h2 className="text-4xl font-semibold">
-            One Process. Seamless Execution.
+            Kitchens, Wardrobes, and Interiors. One Seamless Process.
           </h2>
           <p className="max-w-sm sm:ml-auto">
             Our approach connects design, manufacturing, and installation under one roof. This ensures accuracy, consistency, and complete control from the first concept to the final handover.

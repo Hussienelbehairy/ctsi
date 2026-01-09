@@ -67,7 +67,7 @@ export default function FeaturesSection() {
             <div className="md:pr-6 lg:pr-0">
               <ScrollView>
                 <h2 className="text-4xl font-semibold lg:text-5xl">
-                  Get in touch
+                  Contact CUT TO SIZE INTERIORS
                 </h2>
               </ScrollView>
               <ScrollView>

@@ -246,7 +246,7 @@ export default function HeroSection() {
                   autoPlay
                   loop
                   muted
-                  preload="auto"
+                  preload="metadata"
                   className="size-full -scale-x-100 object-cover opacity-60 md:opacity-50 blur-sm brightness-75 invert-0 dark:opacity-50 dark:brightness-50 dark:invert"
                 >
                   <source src="/hero.mp4" type="video/mp4" />
@@ -264,7 +264,7 @@ export default function HeroSection() {
                     as="h1"
                     className="mt-2 md:mt-3 text-balance text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[5.25rem] font-semibold leading-tight"
                   >
-                    Design Meets Craftsmanship.
+                    Custom Kitchens, Wardrobes, and Interiors Crafted in Cairo.
                   </TextEffect>
                   <AnimatedGroup
                     variants={{
@@ -297,7 +297,7 @@ export default function HeroSection() {
                     as="p"
                     className="mx-auto mt-4 md:mt-6 max-w-2xl px-2 text-balance text-sm sm:text-base md:text-lg italic"
                   >
-                    Custom interior design and bespoke furniture solutions crafted with precision, premium materials, and expert craftsmanship; specializing in kitchens, wardrobes, and bathrooms tailored to your lifestyle.
+                    Interior design, bespoke cabinetry, and full fit-outs crafted with precision, premium materials, and expert craftsmanship—specializing in kitchens, wardrobes, and bathrooms tailored to your lifestyle.
                   </TextEffect>
 
                   <AnimatedGroup

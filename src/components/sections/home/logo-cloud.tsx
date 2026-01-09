@@ -65,6 +65,7 @@ export default function LogoCloud() {
                   alt={toAlt(logo)}
                   width={260}
                   height={110}
+                  sizes="(min-width: 1280px) 200px, (min-width: 1024px) 180px, (min-width: 768px) 160px, 140px"
                   className="h-[2.75rem] w-auto max-w-[110px] object-contain grayscale brightness-0 transition-all duration-300 sm:h-[3.25rem] sm:max-w-[130px] md:h-[3.75rem] md:max-w-[160px] lg:h-[4.25rem] lg:max-w-[180px] hover:[filter:brightness(0)_invert(47%)_sepia(92%)_saturate(2456%)_hue-rotate(359deg)_contrast(104%)]"
                 />
               </a>

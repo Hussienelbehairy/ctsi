@@ -13,7 +13,7 @@ export default function ServicesSection2() {
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
           <ScrollView>
             <h2 className="text-4xl font-medium lg:text-5xl">
-              Design That Works for You
+              Interior Design That Works for You
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
@@ -98,6 +98,7 @@ export default function ServicesSection2() {
                           height={720}
                           width={1080}
                           className="aspect-[16/9] w-full object-cover object-center transition duration-500"
+                          sizes="(min-width: 1280px) 960px, (min-width: 1024px) 820px, (min-width: 768px) 680px, 100vw"
                           loading="lazy"
                         />
                       </div>
