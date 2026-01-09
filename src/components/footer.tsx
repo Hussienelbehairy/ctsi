@@ -53,7 +53,7 @@ export default function FooterSection() {
         <ScrollView delay={0.15} viewMargin="0px 0px -20px 0px">
           <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/95053571/admin/dashboard/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -73,7 +73,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#https://web.facebook.com/profile.php?id=61586089738625"
+              href="https://www.facebook.com/people/Cut-to-Size-Interiors/61586089738625/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -93,7 +93,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#https://www.instagram.com/cuttosize_interiors/?fbclid=IwY2xjawPM7cZleHRuA2FlbQIxMQBicmlkETFNcXp3OVJ5QjZQclNwME1nc3J0YwZhcHBfaWQBMAABHgI5kxSLbQOtsRnxz8ehkPecApaUyaJrDy3W_McLif9otJOL8g-2otuYhtgE_aem_n2IQQoZrifotDS6Wg-tecA"
+              href="https://www.instagram.com/cuttosize_interiors/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
